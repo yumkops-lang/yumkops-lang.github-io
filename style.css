@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #0c0e14; 
+    
+    background-image: 
+        /* 1. Верхний левый угол (Фиолетовый) */
+        radial-gradient(circle at 0% 0%, rgba(138, 43, 226, 0.15) 0%, transparent 25%),
+        
+        /* 2. Нижний правый угол (Зеленый) */
+        radial-gradient(circle at 100% 100%, rgba(46, 204, 113, 0.12) 0%, transparent 25%);
+    
+    background-attachment: fixed;
+}
+
+h1 {
+    color: #a5a6a9;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 80px;
+    font-family: "Fjalla One", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.cursor-blur {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background: transparent; 
+  backdrop-filter: blur(4px); 
+  -webkit-mask-image: radial-gradient(circle, black 30%, transparent 70%);
+  mask-image: radial-gradient(circle, black 30%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  border-radius: 50%;
+}
+
+.gui-wrapper {
+  perspective: 1000px; /* Глубина 3D */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.gui-card {
+  width: 400px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  color: white;
+  font-family: 'Fjalla One', sans-serif;
+  
+  /* Эффект трансформации */
+  transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* Плавное увеличение при наведении */
+.gui-card:hover {
+  transform: scale(1.05); /* Чуть-чуть увеличивается */
+  box-shadow: 0 30px 60px rgba(138, 43, 226, 0.2); /* Добавляем свечение фиолетовым */
+}
+
+.screen-mockup {
+  width: 100%;
+  height: 120px;
+  background: #000;
+  border-radius: 5px;
+  margin-top: 20px;
+  opacity: 0.5;
+}
+
+button {
+    /* 1. Центрирование (если кнопка одна в блоке) */
+    display: block;
+    margin: 40px auto; /* Сверху/снизу 40px, по бокам — авто (центр) */
+    
+    /* 2. Стили из твоего кода */
+    background-color: #0c0e14;
+    color: #a5a6a9;
+    font-size: 40px;
+    font-family: "Fjalla One", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* 3. Убираем грани и лишние эффекты */
+    border: 2px solid rgba(165, 166, 169, 0.3); /* Тонкая полупрозрачная рамка */
+    padding: 10px 30px;
+    border-radius: 8px;
+    cursor: pointer; /* Делает курсор "пальчиком" */
+    outline: none;  /* Убирает синюю обводку при клике */
+
+    /* 4. Плавность анимации */
+    transition: transform 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* 5. Анимация при наведении */
+button:hover {
+    transform: scale(1.1); /* Увеличиваем на 10% */
+    color: #ffffff;        /* Делаем текст ярче */
+    border-color: #8a2be2; /* Меняем цвет рамки на фиолетовый (как твои пятна) */
+}
+
+/* Эффект при нажатии */
+button:active {
+    transform: scale(0.95); /* Немного сжимается при клике */
+}
